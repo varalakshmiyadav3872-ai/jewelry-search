@@ -1,0 +1,12 @@
+services:
+  jewelry-search:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./inventory_images:/app/inventory_images
+      - ./index:/app/index
+      - ./backups:/app/backups
+      - ./app.py:/app/app.py
+      - ./build_index.py:/app/build_index.py
+    restart: unless-stopped
